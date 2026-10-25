@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Text Summarizer</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 180px;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            resize: vertical;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>AI Text Summarizer</h1>
+
+
+    <form action="/summarize" method="POST">
+
+        <label for="article">
+            Enter Article
+        </label>
+
+<textarea id="article"
+          name="article"
+          placeholder="Paste your article here..."
+          required></textarea>
+
+
+        <label for="reference_summary">
+            Reference Summary
+        </label>
+
+        <textarea id="reference_summary" name="reference_summary" placeholder="Enter reference summary for ROUGE evaluation..."></textarea>
+
+
+        <button type="submit">
+            SUMMARIZE
+        </button>
+
+    </form>
+
+
+    {% if summary %}
+
+    <div class="result">
+
+        <h2>Summary</h2>
+
+        <p>
+            {{ summary }}
+        </p>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <strong>
+                    {{ original_words }}
+                </strong>
+
+                Original Words
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    {{ summary_words }}
+                </strong>
+
+                Summary Words
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    {{ compression }}%
+                </strong>
+
+                Compression
+
+            </div>
+
+        </div>
+
+
+        {% if rouge1 is not none %}
+
+        <h3>ROUGE Scores</h3>
+
+        <p>
+            ROUGE-1: {{ rouge1 }}
+        </p>
+
+        <p>
+            ROUGE-2: {{ rouge2 }}
+        </p>
+
+        <p>
+            ROUGE-L: {{ rougel }}
+        </p>
+
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

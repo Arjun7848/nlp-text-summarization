@@ -1,0 +1,13 @@
+Article
+Artificial intelligence is becoming increasingly important in education. AI can help provide personalized learning experiences by adapting educational content to individual students. It can also support teachers by assisting with tasks such as grading, lesson planning, and providing feedback. AI-based tools can make learning more interactive and accessible for students. However, the use of AI in education also creates challenges. These include concerns about data privacy, unequal access to technology, inaccurate information, and excessive dependence on automated systems. Therefore, educational institutions need to use AI responsibly while ensuring that teachers and students remain actively involved in the learning process. Indian Journal of Educational Technology
+
+Reference Summary
+Artificial intelligence can improve education through personalized learning, teacher support, interactive learning, and automated assistance. However, AI also presents challenges such as privacy concerns, unequal access, inaccurate information, and overdependence on technology. Responsible use of AI is therefore important, with teachers and students remaining actively involved in education
+
+Article:
+“The Indian cricket team defeated Australia by 6 wickets in the final match. Rohit Sharma scored a century and helped India chase the target successfully.”
+
+
+Human Reference Summary:
+
+	“India defeated Australia by 6 wickets.”
